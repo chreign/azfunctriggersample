@@ -9,6 +9,10 @@ mvn clean package
 ```sh
 mvn azure-functions:run
 ```
+If you see below error, you can try change to "AzureWebJobsStorage": "UseDevelopmentStorage=true" in local.settings.json
+```sh
+Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than httptrigger, kafkatrigger. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+```
 ## deploy to azure
 ```sh
 mvn azure-functions:deploy

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
 
 @ComponentScan(basePackages = { "com.aa.custhub" })
 @Import(value = { AppConfig.class })
-public class Scheduler {
+public class TimeTrigger {
     private AnnotationConfigApplicationContext context;
 
     @FunctionName("azfunctiontimer")
@@ -28,6 +28,6 @@ public class Scheduler {
     }
 
     private void init() {
-        context = new AnnotationConfigApplicationContext(Scheduler.class);
+        context = new AnnotationConfigApplicationContext(TimeTrigger.class);
     }
 }

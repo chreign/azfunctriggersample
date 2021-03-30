@@ -1,10 +1,14 @@
-# azfunctiontimer
+# azfunction
 build before run, most of command does not require run in the project folder, but some of them requires so, it is better to stay in the project folder
 
 ```sh
 mvn clean package
 ```
 
+## deploy to azure
+```sh
+mvn azure-functions:deploy
+```
 ## run in local
 ```sh
 mvn azure-functions:run
@@ -13,10 +17,7 @@ If you see below error, you can try change to "AzureWebJobsStorage": "UseDevelop
 ```sh
 Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than httptrigger, kafkatrigger. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
 ```
-## deploy to azure
-```sh
-mvn azure-functions:deploy
-```
+The connection requires a storage account. If you see connection refused, then deploy to azure first since deploy will create a storage account, or update AzureWebJobsStorage with an  connection str for an existing storage account. 
 ## run in azure
 ### pre set up
 ```sh

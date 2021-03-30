@@ -1,0 +1,16 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=pocvcrpurged1b52761;AccountKey=Vx36ZhCs3b2jrH16CrQpjybxdWLgf6qCm1rK8aFrNu/nkXtNNSe6Q0Q0rIIkFQOGTjtuXtWY2cMxxihitVZxWw==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "java",
+    "MAIN_CLASS":"com.aa.custhub.SpringbootFunction",
+    "AzureWebJobsDashboard": "",
+    "schedule": "0 0/1 * * * *",
+    "mySecret": "sss",
+    "envKey": "test",
+    "AzureEventHubConnection": "Endpoint=sb://wingtiptoys-space.servicebus.windows.net/;SharedAccessKeyName=readwrite;SharedAccessKey=ugxH5r+MjL8ngxcKtTXhkNS01YikHDCXtwM7/Zy4JXc=;EntityPath=wingtiptoys",
+    "ServiceBusQueueConnection": "Endpoint=sb://sb-ch-data-cleanser-n.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=362CsQpDR1tmUerhL2NATp/LbwZl0pGJcpuUSF76Ylc=",
+    "ServiceBusTopicConnection": "",
+    "JAVA_HOME": "/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home"
+  }
+}

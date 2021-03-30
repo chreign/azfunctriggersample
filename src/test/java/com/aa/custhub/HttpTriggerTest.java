@@ -45,7 +45,7 @@ public class HttpTriggerTest {
         doReturn(Logger.getGlobal()).when(context).getLogger();
 
         // Invoke
-        final HttpResponseMessage ret = new HttpTrigger().run(req, context);
+        final HttpResponseMessage ret = new HttpTriggerSample().run(req, context);
 
         // Verify
         assertEquals(ret.getStatus(), HttpStatus.OK);

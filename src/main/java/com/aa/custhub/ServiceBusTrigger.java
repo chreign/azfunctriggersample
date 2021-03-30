@@ -12,19 +12,23 @@ public class ServiceBusTrigger {
     public void serviceBusQueueTrigger(
             @ServiceBusQueueTrigger(name = "msg",
                     queueName = "sbq-postal-address",
+                    // connection has to be the env variable
                     connection = "ServiceBusQueueConnection") String message,
             final ExecutionContext context
     ) {
-        context.getLogger().info("receiver" + message);
+        context.getLogger().info("queue receiver:" + message);
     }
 
     @FunctionName("ServiceBusTopicTrigger")
     public void serviceBusTopicTrigger(
-            @ServiceBusTopicTrigger(name = "message", topicName = "SBTopicNameSingle", subscriptionName="SBTopicNameSingleSubName",connection = "ServiceBusTopicConnection") String message,
+            @ServiceBusTopicTrigger(name = "message", topicName = "SBTopicNameSingle", subscriptionName = "SBTopicNameSingleSubName",
+                    // connection has to be the env variable
+                    connection = "ServiceBusTopicConnection") String message,
+            // storage queue
             @QueueOutput(name = "output", queueName = "test-servicebustopicbatch-java", connection = "AzureWebJobsStorage") OutputBinding<String> output,
             final ExecutionContext context
     ) {
-        context.getLogger().info("Java Service Bus Topic trigger function processed a message: " + message);
+        context.getLogger().info("topic receiver: " + message);
         output.setValue(message);
     }
 }

@@ -10,6 +10,7 @@ public class EventTrigger {
     public void eventHubProcessor(
             @EventHubTrigger(name = "messages",
                     eventHubName = "wingtiptoys",
+                    // connection has to be the env variable
                     connection = "AzureEventHubConnection",
                     dataType = "string") String message,
             final ExecutionContext context )

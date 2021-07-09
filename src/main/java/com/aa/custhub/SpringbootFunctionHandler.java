@@ -7,11 +7,17 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import com.microsoft.azure.functions.annotation.TimerTrigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
+import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.util.Optional;
 import java.util.UUID;
 
-public class SpringbootFunctionHandler extends AzureSpringBootRequestHandler<String, Boolean> {
+public class SpringbootFunctionHandler extends FunctionInvoker<String, String> {
     private static final Logger logger = LoggerFactory.getLogger(SpringbootFunctionHandler.class);
 
     @FunctionName("timer")
@@ -21,12 +27,12 @@ public class SpringbootFunctionHandler extends AzureSpringBootRequestHandler<Str
     ) {
         context.getLogger().info("azfunctionspringboot is triggered: " + timerInfo);
         logger.info("this is triggered during timer trigger");
-        Boolean result = handleRequest(UUID.randomUUID().toString(), context);
+        String result = handleRequest(UUID.randomUUID().toString(), context);
         logger.info("anything happened? " + result);
     }
 
     @FunctionName("hello")
-    public HttpResponseMessage execute(
+    public HttpResponseMessage hello(
             @HttpTrigger(name = "request", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<String> request,
             ExecutionContext context) {
         logger.info("this is triggered during http trigger in spring boot");
@@ -37,5 +43,23 @@ public class SpringbootFunctionHandler extends AzureSpringBootRequestHandler<Str
                 .body(handleRequest(user, context))
                 .header("Content-Type", "application/json")
                 .build();
+    }
+
+    @FunctionName("echo")
+    public String execute(@HttpTrigger(name = "req", methods = {HttpMethod.GET,
+            HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+                          ExecutionContext context) {
+        return handleRequest(request.getBody().get(), context);
+    }
+
+    @FunctionName("ssl")
+    public String test(@HttpTrigger(name = "req", methods = {HttpMethod.GET,
+            HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+                          ExecutionContext context) {
+        String url = request.getQueryParameters().get("target");
+        if (url == null) {
+            return handleRequest("bad requests", context);
+        }
+        return handleRequest(url, context);
     }
 }

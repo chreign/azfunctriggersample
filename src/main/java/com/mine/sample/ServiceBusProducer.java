@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
@@ -12,7 +12,7 @@ public class ServiceBusProducer {
     @FunctionName("ServiceBusQueueSend")
     public void serviceBusQueueOutput(
             @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusQueueOutput(name = "output", queueName = "sbq-postal-address",
+            @ServiceBusQueueOutput(name = "output", queueName = "poc-queue",
                     // connection has to be the env variable
                     connection = "ServiceBusQueueConnection") OutputBinding<String> output,
             final ExecutionContext context

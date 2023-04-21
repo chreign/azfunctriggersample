@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
@@ -7,13 +7,8 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import com.microsoft.azure.functions.annotation.TimerTrigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
 import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
 import java.util.Optional;
 import java.util.UUID;
 

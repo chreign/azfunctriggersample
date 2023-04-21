@@ -1,4 +1,4 @@
-package com.aa.custhub.config;
+package com.mine.sample.config;
 
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.security.keyvault.certificates.CertificateClient;

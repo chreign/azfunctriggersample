@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.microsoft.azure.functions.annotation.EventHubOutput;
 import com.microsoft.azure.functions.annotation.FunctionName;

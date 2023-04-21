@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.aa.custhub</groupId>
+    <groupId>com.mine.sample</groupId>
     <artifactId>azfunction</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>${packaging.type}</packaging>
@@ -17,15 +17,15 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <packaging.type>jar</packaging.type>
 
-        <start-class>com.aa.custhub.SpringbootFunction</start-class>
+        <start-class>com.mine.sample.SpringbootFunction</start-class>
         <azure.functions.maven.plugin.version>1.9.0</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>1.4.0</azure.functions.java.library.version>
-        <functionAppName>pocfunctiondeploy</functionAppName>
+        <functionAppName>pocfunctiondemo</functionAppName>
         <functionAppRegion>eastus</functionAppRegion>
         <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
-        <functionResourceGroup>ct-n-zeaus-custprivacy-rg</functionResourceGroup>
-        <appServicePlanName>ct-n-zeaus-custprivacy-stg-profile-plan</appServicePlanName>
-        <subscriptionId>0bc507f3-ad14-4edd-8f76-a91458390da2</subscriptionId>
+        <functionResourceGroup>myresourcegroup</functionResourceGroup>
+        <appServicePlanName>EastUSPlan</appServicePlanName>
+        <subscriptionId>53126cf4-dd12-46e1-899e-92f0f1edc5c4</subscriptionId>
 
         <spring-boot.version>2.4.5</spring-boot.version>
         <org.springframework-version>5.3.6</org.springframework-version>
@@ -148,11 +148,11 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!--<plugin>-->
-                    <!--<groupId>com.microsoft.azure</groupId>-->
-                    <!--<artifactId>azure-functions-maven-plugin</artifactId>-->
-                    <!--<version>${azure.functions.maven.plugin.version}</version>-->
-                <!--</plugin>-->
+                <plugin>
+                    <groupId>com.microsoft.azure</groupId>
+                    <artifactId>azure-functions-maven-plugin</artifactId>
+                    <version>${azure.functions.maven.plugin.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>

@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.OutputBinding;
@@ -11,7 +11,7 @@ public class ServiceBusTrigger {
     @FunctionName("ServiceBusQueueTrigger")
     public void serviceBusQueueTrigger(
             @ServiceBusQueueTrigger(name = "msg",
-                    queueName = "sbq-postal-address",
+                    queueName = "poc-queue",
                     // connection has to be the env variable
                     connection = "ServiceBusQueueConnection") String message,
             final ExecutionContext context

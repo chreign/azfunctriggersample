@@ -1,6 +1,6 @@
-package com.aa.custhub;
+package com.mine.sample;
 
-import com.aa.custhub.config.AppConfig;
+import com.mine.sample.config.AppConfig;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

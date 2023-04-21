@@ -1,6 +1,6 @@
-package com.aa.custhub;
+package com.mine.sample;
 
-import com.aa.custhub.config.AppConfig;
+import com.mine.sample.config.AppConfig;
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;

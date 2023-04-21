@@ -1,6 +1,6 @@
-package com.aa.custhub;
+package com.mine.sample;
 
-import com.aa.custhub.config.AppConfig;
+import com.mine.sample.config.AppConfig;
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.TimerTrigger;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
-@ComponentScan(basePackages = { "com.aa.custhub" })
+@ComponentScan(basePackages = { "com.mine.sample" })
 @Import(value = { AppConfig.class })
 public class TimeTrigger {
     private AnnotationConfigApplicationContext context;

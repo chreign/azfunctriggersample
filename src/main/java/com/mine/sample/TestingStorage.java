@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.storage.blob.BlobContainerClient;

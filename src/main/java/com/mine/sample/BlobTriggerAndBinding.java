@@ -1,4 +1,4 @@
-package com.aa.custhub;
+package com.mine.sample;
 
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.*;
@@ -35,6 +35,7 @@ public class BlobTriggerAndBinding {
         context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
     }
 
+    // curl http://localhost:7071/api/getBlobSizeHttp?file=sample.txt
     @FunctionName("getBlobSizeHttp")
     @StorageAccount("AzureWebJobsStorage")
     public HttpResponseMessage blobSize(
@@ -54,6 +55,7 @@ public class BlobTriggerAndBinding {
                 .build();
     }
 
+    // curl http://localhost:7071/api/copyBlobHttp?file=sample.txt
     @FunctionName("copyBlobHttp")
     @StorageAccount("AzureWebJobsStorage")
     public HttpResponseMessage copyBlobHttp(
